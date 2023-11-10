@@ -41,7 +41,7 @@
 ******************************************************************************/
 #define PLAYER_X_SIZE						30U
 #define PLAYER_Y_SIZE						30U
-#define DEBOUNCE_DELAY 					100000
+#define DEBOUNCE_DELAY 					200000
 #define FLOOR_LEVEL							160U
 #define CEILING_LEVEL						10U
 
@@ -111,7 +111,7 @@ static volatile BOOL  		buzz_flag;
 /** Sprite Animation **/
 static volatile int					g_FireCounter = 150;
 static volatile BOOL				g_FireFlip = FALSE;
-
+static int s_FireToggleCounter = 0;
 static volatile int					g_ExplosionCounter = 75;
 static volatile int					g_ExplosionType = 1;
 
@@ -286,7 +286,7 @@ int main()
 				SW1_press = FALSE;
 				SW1_debounce = 0;
 			
-				if (g_TankLifeCounter == 0)
+				if (g_TankLifeCounter < 0) // If Tank lives drop below 0
 				{
 					g_TankLifeCounter = 3;
 				}
@@ -310,6 +310,7 @@ void SysTick_Handler( void )
 		
 	/* Provide system tick */
   g_nCount++;
+	
   if (g_nCount == 1000)
   {
     g_bSecTick = TRUE;
@@ -358,9 +359,9 @@ void SysTick_Handler( void )
 		buzz_flag=FALSE;
 	}
 
-if (g_TankLifeCounter-- ) // when player loses a life
+if (SW1_press == TRUE ) // when player loses a life 
 {
-if(g_TankLifeCounter != 0) //if player still has lives
+if (g_TankLifeCounter != 0) // if player still has lives
 {
 		 g_ExplosionCounter--;
 	if (g_ExplosionCounter == 0 )
@@ -373,24 +374,26 @@ if(g_TankLifeCounter != 0) //if player still has lives
 		}
 	}
 }
-else if (g_TankLifeCounter == 0) // When player dead
-{
-	if( g_FireCounter >= 75)
-	{
-		g_FireFlip = FALSE;
-	}
-	 if (g_FireCounter < 75)
-	{
-		g_FireFlip = TRUE;
-	}
-	
-	g_FireCounter--;
-		 if (g_FireCounter == 0)
-		 {
-	g_FireCounter = 150;
-		g_FireFlip = FALSE;
-		 }
+
 }
+
+if (SW1_press == FALSE && g_TankLifeCounter == 0) // When player dead
+
+    {
+        
+        if (s_FireToggleCounter >= 10) 
+        {
+            g_FireFlip = !g_FireFlip;
+            s_FireToggleCounter = 0;
+        }
+        
+        s_FireToggleCounter++;
+    }
+		 else
+    {
+        // Reset the toggle counter when TankLifeCounter is not 0
+        s_FireToggleCounter = 0;
+
 }
 	 TankCounter--;
 	if (TankCounter == 0 )
@@ -414,6 +417,10 @@ void GUI_AppDraw( BOOL bFrameStart )
 	
 	//GUI_SetColor(ClrYellow);	// Screen Border
 	//GUI_DrawRect(0,0,159,127);
+	GUI_SetFont (&g_FontComic16);
+
+	sprintf(buf, "LIVES: %d", g_TankLifeCounter);
+		GUI_PrintString(buf, ClrWhite, 10, 60);
 
 Print_GameObject(&gObj_P1NWtank2, FALSE);
 	
@@ -667,8 +674,6 @@ static void main_KeypadOutput(void)
 	
 	}
 }
-
-
 
 /*****************************************************************************
  Interrupt functions
