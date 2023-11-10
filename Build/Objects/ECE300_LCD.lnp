@@ -1,0 +1,25 @@
+--cpu=Cortex-M4.fp.sp
+".\objects\main.o"
+".\objects\gameobj.o"
+"..\Src\App\LCD\DPGUI_KEIL_CM4_V11.lib"
+".\objects\lcd_st7735r.o"
+".\objects\fontarialbold16.o"
+".\objects\fontarialbold12.o"
+".\objects\fontarialbold24.o"
+".\objects\fontdigital720.o"
+".\objects\fontbradhitc16.o"
+".\objects\fontemoticons24.o"
+".\objects\fontcomic16.o"
+".\objects\bsp.o"
+".\objects\hal.o"
+".\objects\irq.o"
+".\objects\uart.o"
+".\objects\retarget.o"
+".\objects\startup_tm4c123.o"
+".\objects\system_tm4c123.o"
+".\objects\spim.o"
+".\objects\retarget_io.o"
+--strict --scatter ".\Objects\ECE300_LCD.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\ECE300_LCD.map" -o .\Objects\ECE300_LCD.axf
