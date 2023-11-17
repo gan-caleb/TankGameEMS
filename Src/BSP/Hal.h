@@ -59,6 +59,7 @@
 #define PF_LED_BLUE				2U
 #define PF_LED_GREEN			3U
 #define PF_SW1						4U
+#define PB_6							6U
 
 #define SYSCTL_RCGCTIMER_R0 0x00000001 // Timer 0 Run Mode Clock Gating Ctrl
 #define SYSCTL_PRTIMER_R0 0x00000001 // Timer 0 Peripheral Ready
@@ -151,6 +152,14 @@
 #define ADC1_SS0_Start()    (  (ADC1->PSSI |= ADC_PSSI_SS0) )
 #define ADC1_BUSY()          ( (ADC1->ACTSS & ADC_ACTSS_BUSY) == 0x01? TRUE : FALSE)
 #define ADC1_GET_MUX0_FIFO()       (ADC1->SSFIFO0)
+
+
+
+#define SW2_STATE() ((GPIOF->DATA & BIT(PF_SW2)) ? TRUE : FALSE) //Read Switch 2 status
+#define SW1_STATE() ((GPIOF->DATA & BIT(PF_SW1)) ? TRUE : FALSE)	//Read Switch 1 status
+
+#define TESTPIN_H() (GPIOB->DATA |= BIT(PB_6)) //Set PB6 to High
+#define TESTPIN_L() (GPIOB->DATA &= ~BIT(PB_6)) //Set PB6 to Low
 
 /******************************************************************************
  Global functions

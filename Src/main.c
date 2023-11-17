@@ -41,10 +41,33 @@
 ******************************************************************************/
 #define PLAYER_X_SIZE						30U
 #define PLAYER_Y_SIZE						30U
-#define DEBOUNCE_DELAY 					500000
+#define DEBOUNCE_DELAY 					20000
 #define FLOOR_LEVEL							160U
 #define CEILING_LEVEL						10U
 
+// Define tank directions
+#define TANK_DIRECTION_NORTH 1
+#define TANK_DIRECTION_NORTHWEST 2
+#define TANK_DIRECTION_WEST 3
+#define TANK_DIRECTION_SOUTHWEST 4
+#define TANK_DIRECTION_SOUTH 5
+#define TANK_DIRECTION_SOUTHEAST 6
+#define TANK_DIRECTION_EAST 7
+#define TANK_DIRECTION_NORTHEAST 8
+
+// Define tank movement speed
+#define TANK_MOVE_INCREMENT 1
+
+#define POTENTIOMETER_THRESHOLD 50  // Threshold for potentiometer change
+
+#define SMOOTHING_FACTOR 10
+
+
+
+
+// Initialize tank direction and movement flag
+static volatile int g_nTankDirection = 0; // 0 for no movement, 1-8 for directions
+static volatile BOOL g_bTankMoving = FALSE;
 /*****************************************************************************
  Global Variables
 ******************************************************************************/
@@ -94,6 +117,7 @@ static unsigned char 			g_cDir = ' ';
 static volatile int 			g_nKeypad = KEYPAD_UPDATE_MS;
 static volatile int   		hist_row, hist_col;
 static unsigned int 			g_nAngle = 0;
+static volatile 					BOOL hashPress = FALSE;
 
 /*************************		Buttons		**************************/
 static volatile BOOL			g_bSW1 = FALSE;  
@@ -104,6 +128,8 @@ volatile uint32_t 				delay = 0;
 static int				 				timer = 0;
 volatile uint32_t					SW1_debounce = 0;
 volatile uint32_t					SW2_debounce = 0;
+
+
 
 /********************		Timer 0A TESTPIN		**********************/
 static BOOL								g_bTESTPIN = FALSE;
@@ -133,6 +159,8 @@ static 											BOOL explosionInProgress = FALSE;
 static volatile int 				g_TankLifeCounter = 3;
 static volatile int					TankOri = 1;
 static volatile int					TankCounter = 200;
+static int 									g_nTankSpeed = 1; // Adjust speed as needed
+
 
 /****************************** Game Objects *********************************/
 		
@@ -183,6 +211,8 @@ static GameObject gObj_P1NEtank = { // NORTH-EAST
 		{BALL_X_SIZE, BALL_Y_SIZE}, 
 		{100, 50} };		
 	
+		
+static GameObject *currentTankSprite;
 
 		
 /* Fire Sprite Variables */
@@ -236,6 +266,13 @@ static void main_KeypadOutput(void);
 int CHAR_TO_INT (char); 
 void GUI_AppDraw( BOOL bFrameStart );
 extern void GPIOF_Button_IRQHandler ( uint32_t Status);
+static void main_AdcUpdate(void);
+static void main_AdcInit(void);
+void UpdateTankPosition(void);
+void UpdateTankSprite();
+		
+	
+		
 		
 /*****************************************************************************
  Implementation
@@ -262,9 +299,17 @@ int main()
 	
 	IRQ_Init(); // Initialize Interrupt handler
 	
+	main_AdcInit();
+	
+	 // Print all tank sprites
+    currentTankSprite = &gObj_p1_NorthBluetank;
+	
+	
 	/*	Infinite FOR Loop, all functions that need to be looped, place here		*/
 	for(;;)
   {
+		main_AdcUpdate();
+
 		IN_FLAG = FALSE;
 		/* LCD update */
 		if( FALSE != g_bLCDUpdate )
@@ -288,8 +333,8 @@ int main()
 			if ((SW1_debounce > DEBOUNCE_DELAY) && SW1_press == TRUE)
 			{
 				g_TankLifeCounter--;
-				SW1_press = FALSE;
 				SW1_debounce = 0;
+			}
 			
 				if (g_TankLifeCounter < 0) // If Tank lives drop below 0
 				{
@@ -305,15 +350,29 @@ int main()
 			g_bKeypadScan = FALSE;
 			main_KeyScan();   // TODO add directional input to TANK here
 		}
+		 // Handle tank movement
+        if (SW1_press)
+        {
+            g_bTankMoving = TRUE; // Tank is moving as long as SW1 is pressed
+            UpdateTankPosition(); // Update tank position based on direction
+        }
+        else
+        {
+            g_bTankMoving = FALSE; // Tank stops moving when SW1 is released
+        }
+
+        UpdateTankSprite(); // Update tank sprite based on direction
+		}			
 		
-	}
-}
+	
+
 
 /*****************************************************************************
  Callback functions
 ******************************************************************************/
 void SysTick_Handler( void )  
 {
+
 	g_bSystemTick = TRUE;
 		
 	/* Provide system tick */
@@ -414,19 +473,23 @@ if (SW1_press == FALSE && g_TankLifeCounter == 0) // When player dead
         // Reset the toggle counter when TankLifeCounter is not 0
         s_FireToggleCounter = 0;
 
-}
-	 TankCounter--;
-	if (TankCounter == 0 )
-	{
-		TankOri++;
-		TankCounter = 200;
-		if (TankOri > 8 )
-		{
-			TankOri = 1;
-	}
+		}
+		
+		 // Handle tank movement
+    if (SW1_press)
+    {
+        g_bTankMoving = TRUE; // Tank is moving as long as SW1 is pressed
+        UpdateTankPosition(); // Update tank position based on direction
+    }
+    else
+    {
+        g_bTankMoving = FALSE; // Tank stops moving when SW1 is released
+    }
 
+			
 }
-}//////////////////////////////end of Systick Handler//////////////////////////////////////
+
+//////////////////////////////end of Systick Handler//////////////////////////////////////
 
 
 /**************************** Printing to LCD ******************************************/
@@ -442,47 +505,48 @@ void GUI_AppDraw( BOOL bFrameStart )
 	//GUI_DrawRect(0,0,159,127);
 	GUI_SetFont (&g_FontComic16);
 
-	sprintf(buf, "LIVES: %d", g_TankLifeCounter); // Print Life counter to LCD
-		GUI_PrintString(buf, ClrWhite, 10, 60);
+//	sprintf(buf, "LIVES: %d", g_TankLifeCounter); // Print Life counter to LCD
+//		GUI_PrintString(buf, ClrWhite, 10, 60);
 
-Print_GameObject(&gObj_P1NWtank2, FALSE);
+
+Print_GameObject(currentTankSprite, FALSE);
 	
 	/** Print Fire Animation **/
 	
-	if (g_FireFlip == FALSE)
-	{
-	Print_GameObject(&gObj_Fire1, FALSE);
-	}
-	else
-	{
-	Print_GameObject(&gObj_Fire2, FALSE);
-	}
+//	if (g_FireFlip == FALSE)
+//	{
+//	Print_GameObject(&gObj_Fire1, FALSE);
+//	}
+//	else
+//	{
+//	Print_GameObject(&gObj_Fire2, FALSE);
+//	}
 
 	
 	/** Print Explosion Animation **/
 	
-	switch (g_ExplosionType)
-	{
-		case 1:
-		Print_GameObject(&gObj_Explosion1, FALSE);
-		break;
-		case 2:
-		Print_GameObject(&gObj_Explosion2, FALSE);
-		break;
-		case 3:
-		Print_GameObject(&gObj_Explosion3, FALSE);
-		break;
-		case 4:
-		Print_GameObject(&gObj_Explosion4, FALSE);
-		break;
-		case 5:
-		Print_GameObject(&gObj_Explosion5, FALSE);
-		break;
-	}
+//	switch (g_ExplosionType)
+//	{
+//		case 1:
+//		Print_GameObject(&gObj_Explosion1, FALSE);
+//		break;
+//		case 2:
+//		Print_GameObject(&gObj_Explosion2, FALSE);
+//		break;
+//		case 3:
+//		Print_GameObject(&gObj_Explosion3, FALSE);
+//		break;
+//		case 4:
+//		Print_GameObject(&gObj_Explosion4, FALSE);
+//		break;
+//		case 5:
+//		Print_GameObject(&gObj_Explosion5, FALSE);
+//		break;
+//	}
 	
 		/** Print Cactus Object **/
 
-	Print_GameObject(&gObj_Cactus, FALSE);
+//	Print_GameObject(&gObj_Cactus, FALSE);
 
 		/** Print Tank Sprite **/
 
@@ -530,6 +594,100 @@ static void main_cbGuiFrameEnd( void )
  Local functions
 ******************************************************************************/
 
+/****************** Tank Sprite positioning *****************************/
+
+void UpdateTankSprite()
+{
+    GameObject *prevTankSprite = currentTankSprite;
+
+    switch (TankOri)
+    {
+        case TANK_DIRECTION_NORTH:
+            currentTankSprite = &gObj_p1_NorthBluetank;
+            break;
+        case TANK_DIRECTION_NORTHWEST:
+            currentTankSprite = &gObj_P1NWtank;
+            break;
+        case TANK_DIRECTION_WEST:
+            currentTankSprite = &gObj_p1_WestBluetank;
+            break;
+        case TANK_DIRECTION_SOUTHWEST:
+            currentTankSprite = &gObj_P1SWtank;
+            break;
+        case TANK_DIRECTION_SOUTH:
+            currentTankSprite = &gObj_p1_SouthBluetank;
+            break;
+        case TANK_DIRECTION_SOUTHEAST:
+            currentTankSprite = &gObj_P1SEtank;
+            break;
+        case TANK_DIRECTION_EAST:
+            currentTankSprite = &gObj_p1_EastBluetank;
+            break;
+        case TANK_DIRECTION_NORTHEAST:
+            currentTankSprite = &gObj_P1NEtank;
+            break;
+        default:
+            // Default sprite when direction is not recognized
+            currentTankSprite = &gObj_p1_NorthBluetank;
+    }
+
+    // Copy the previous position to the new sprite
+    if (prevTankSprite != currentTankSprite) {
+        currentTankSprite->pos.x = prevTankSprite->pos.x;
+        currentTankSprite->pos.y = prevTankSprite->pos.y;
+    }
+}
+
+void UpdateTankPosition()
+{
+    static int tickCount = 0;
+    tickCount++;
+		static int pixelSpeed = 3;
+
+    // Only move the tank once every 500 ticks
+    if (tickCount >= 200 && g_bTankMoving)
+    {
+        tickCount = 0; // Reset tick counter
+
+        switch (TankOri)
+        {
+            case TANK_DIRECTION_NORTH:
+                currentTankSprite->pos.y -= pixelSpeed; // Move 1 pixel
+                break;
+            case TANK_DIRECTION_NORTHWEST:
+                currentTankSprite->pos.x -= pixelSpeed;
+                currentTankSprite->pos.y -= pixelSpeed;
+                break;
+            case TANK_DIRECTION_WEST:
+                currentTankSprite->pos.x -= pixelSpeed;
+                break;
+            case TANK_DIRECTION_SOUTHWEST:
+                currentTankSprite->pos.x -= pixelSpeed;
+                currentTankSprite->pos.y += pixelSpeed;
+                break;
+            case TANK_DIRECTION_SOUTH:
+                currentTankSprite->pos.y += pixelSpeed;
+                break;
+            case TANK_DIRECTION_SOUTHEAST:
+                currentTankSprite->pos.x += pixelSpeed;
+                currentTankSprite->pos.y += pixelSpeed;
+                break;
+            case TANK_DIRECTION_EAST:
+                currentTankSprite->pos.x += pixelSpeed;
+                break;
+            case TANK_DIRECTION_NORTHEAST:
+                currentTankSprite->pos.x += pixelSpeed;
+                currentTankSprite->pos.y -= pixelSpeed;
+                break;
+            default:
+                // No movement if the direction is not recognized
+                break;
+        }
+    }
+}
+		
+
+
 /*************************** Keypad Parameters ******************************/
 
 static void main_KeyScan( void )
@@ -566,12 +724,18 @@ static void main_KeyScan( void )
 							bKeyPressed=TRUE;
 							buzz_flag = TRUE;
 							printf("INPUT: %c", g_cKey);
-							return;
+							
+							  if (g_cKey == '#') 
+    {
+        hashPress = !hashPress;  // Toggle the hashPress flag
+    }
+            }
+            return;
 						}
 				}		
 			
 		} //end of for loop
-	}
+	
 
   /* Check if key is released */
 	else{	//(bKeyPressed==TRUE)
@@ -635,6 +799,55 @@ static void main_LcdInit( void )
 	LCD_BL_ON();
 }
 
+/*******************  ADC Parameters ****************************/
+
+static void main_AdcInit(void)
+{
+    /* Disable Sample Sequencer 0 (SS0) for initialization */
+    ADC0->ACTSS &= ~ADC_ACTSS_ASEN0;
+    ADC1->ACTSS &= ~ADC_ACTSS_ASEN0;
+
+    /* Configure SS0 to read from AIN8 and AIN9 */
+    ADC0->SSMUX0 = AIN8; // Configure both AIN9 and AIN8
+    ADC1->SSMUX0 = AIN9; // Configure both AIN9 and AIN8
+
+    /* Configure SS0 step 0 and step 1 to be the end of the sequence */
+    ADC0->SSCTL0 |= ADC_SSCTL0_END0 | ADC_SSCTL0_END1;
+    ADC1->SSCTL0 |= ADC_SSCTL0_END0 | ADC_SSCTL0_END1;
+    /* Set hardware averaging to 32X */
+    ADC0->SAC |= ADC_SAC_AVG_32X;
+    ADC1->SAC |= ADC_SAC_AVG_32X;
+
+    /* Enable SS0 */
+    ADC0->ACTSS |= ADC_ACTSS_ASEN0;
+    ADC1->ACTSS |= ADC_ACTSS_ASEN0;
+
+    /* Start SS0 */
+    ADC0_SS0_Start();
+    ADC1_SS0_Start();
+}
+
+
+void main_AdcUpdate(void)
+{
+    static uint16_t lastResult_MUX0 = 0;
+    uint16_t Result_MUX0;
+    Result_MUX0 = ADC0_GET_MUX0_FIFO();
+
+    // Simple filtering: Only update if the change is significant
+    if (abs(Result_MUX0 - lastResult_MUX0) > POTENTIOMETER_THRESHOLD) {
+        TankOri = (Result_MUX0 * 8) / 4096 + 1; // Assuming 12-bit ADC resolution
+        if (TankOri > 8) TankOri = 8;
+        if (TankOri < 1) TankOri = 1;
+
+        lastResult_MUX0 = Result_MUX0;
+        UpdateTankSprite();
+    }
+
+    ADC0_SS0_Start();
+}
+
+
 /*************************** Keypad Output Parameters ****************************/
 
 static void main_KeypadOutput(void)
@@ -693,12 +906,20 @@ static void main_KeypadOutput(void)
 	SW2_press = TRUE;
 	}
 /* check if it is SW1 (PF4) interrupt */
-	if( 0 != (Status & BIT(PF_SW1) )){
-	GPIOF->ICR = BIT(PF_SW1); /* clear intr */
-	SW1_press = TRUE;
+if (0 != (Status & BIT(PF_SW1)))
+    {
+        GPIOF->ICR = BIT(PF_SW1); // Clear interrupt
+        SW1_press = !SW1_press;
+        g_bTankMoving = SW1_press; // Set tank moving state based on SW1
+			 }
+    else
+    {
+        SW1_press = FALSE;
+        g_bTankMoving = FALSE;  // Stop tank when SW1 is released
+    }
 	
 	}
-}
+
 
 /*****************************************************************************
  Interrupt functions
@@ -719,3 +940,5 @@ int CHAR_TO_INT (char c)
 {
 	return c - '0';
 }
+
+

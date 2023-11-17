@@ -112,6 +112,19 @@ void Port_Init( void )
 	GPIOF->IEV = ~(BIT(PF_SW1) | BIT(PF_SW2)); /* Falling edge */
 	GPIOF->IM |= (BIT(PF_SW1) | BIT(PF_SW2));
 	
+	/* Unlock GPIO PF[0] */
+	GPIOF->LOCK = GPIO_LOCK_KEY;	/* Unlock Port F (pg 684)		*/
+  GPIOF->CR |= BIT(PF_SW2);			/* Set Commit Control register for PF[0] */
+	GPIOF->DIR &= ~( BIT(PF_SW1) | BIT(PF_SW2) );
+	GPIOF->PUR |= (BIT(PF_SW1) | BIT(PF_SW2));
+	GPIOF->DEN |= (BIT(PF_SW1) | BIT(PF_SW2));
+
+	GPIOB->LOCK = GPIO_LOCK_KEY;	/* Unlock Port B */
+  GPIOB->CR |= BIT(PB_6);					/* Set the Commit Control register for PB6 */
+  GPIOB->DIR |= BIT(PB_6);				/* Clear the Direction register bit for PB6 */
+  GPIOB->PUR |= BIT(PB_6);					/* Enable the pull-up resistor on PB6 */
+  GPIOB->DEN |= BIT(PB_6);					/* Enable digital I/O on PB6 */
+	
 	/* initialize GPIO PA0 (UART0_RX) & PA1 (UART0_TX)   */
 	GPIOA->AFSEL |= BIT(PA_UART0_RX) | BIT(PA_UART0_TX);
 	GPIOA->DEN |= BIT(PA_UART0_RX) | BIT(PA_UART0_TX);
@@ -152,12 +165,8 @@ void Port_Init( void )
 	GPIOE->AFSEL &= ~(BIT(PE_KEYPAD_COL0) | BIT(PE_KEYPAD_COL1) | BIT(PE_KEYPAD_COL2));
 	GPIOE->PCTL &= ~( GPIO_PCTL_PE2_M | GPIO_PCTL_PE3_M | GPIO_PCTL_PE4_M );
 	GPIOE->PUR |= (BIT(PE_KEYPAD_COL0) | BIT(PE_KEYPAD_COL1) | BIT(PE_KEYPAD_COL2));
+
 	
-	/* Potentiometer */
-	
-	// TODO: add initialize codes
-	
-	/* ADC */
 	
 	 /* Enable Clocks Gate for ADC0 */
   SYSCTL->RCGCADC |= SYSCTL_RCGCADC_R0; 
@@ -226,7 +235,7 @@ void Port_Init( void )
 	UART0->LCRH |= UART_LCRH_EPS ;   									/* even parity  								*/ 	
 	UART0->LCRH &= ~UART_LCRH_STP2;  									/* 1 stop bit 									*/ 
 	UART0->LCRH |= UART_LCRH_FEN; 										/* enable FIFO*/
-	//UART0->CTL |= UART_CTL_TXE; 										/* transmit enable 							*/
+	UART0->CTL |= UART_CTL_TXE; 										/* transmit enable 							*/
 	UART0->CTL |= UART_CTL_TXE | UART_CTL_RXE ; 			/* transmit & receive enable 							*/
 	UART0->CTL |= UART_CTL_UARTEN; 										/* enable UART0   		*/
 
