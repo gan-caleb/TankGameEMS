@@ -39,6 +39,7 @@
 /*****************************************************************************
  Type definition
 ******************************************************************************/
+
 #define PLAYER_X_SIZE						30U
 #define PLAYER_Y_SIZE						30U
 #define DEBOUNCE_DELAY 					20000
@@ -46,28 +47,22 @@
 #define CEILING_LEVEL						10U
 
 // Define tank directions
-#define TANK_DIRECTION_NORTH 1
-#define TANK_DIRECTION_NORTHWEST 2
-#define TANK_DIRECTION_WEST 3
-#define TANK_DIRECTION_SOUTHWEST 4
-#define TANK_DIRECTION_SOUTH 5
-#define TANK_DIRECTION_SOUTHEAST 6
-#define TANK_DIRECTION_EAST 7
-#define TANK_DIRECTION_NORTHEAST 8
+
+//#define TANK_DIRECTION_WEST 3									// WEST not needed for P1
+#define TANK_DIRECTION_NORTHWEST 1
+#define TANK_DIRECTION_NORTH 2
+#define TANK_DIRECTION_NORTHEAST 3
+#define TANK_DIRECTION_EAST 4										// default position for P1
+#define TANK_DIRECTION_SOUTHEAST 5
+#define TANK_DIRECTION_SOUTH 6
+#define TANK_DIRECTION_SOUTHWEST 7
 
 // Define tank movement speed
 #define TANK_MOVE_INCREMENT 1
 
-#define POTENTIOMETER_THRESHOLD 50  // Threshold for potentiometer change
+// Potentiometer Threshhold
+#define POTENTIOMETER_THRESHOLD 50
 
-#define SMOOTHING_FACTOR 10
-
-
-
-
-// Initialize tank direction and movement flag
-static volatile int g_nTankDirection = 0; // 0 for no movement, 1-8 for directions
-static volatile BOOL g_bTankMoving = FALSE;
 /*****************************************************************************
  Global Variables
 ******************************************************************************/
@@ -166,6 +161,10 @@ static int 									g_nTankSpeed = 1; // Adjust speed as needed
 		
 /* Tank Sprite Directional Variables */	
 
+static GameObject *currentTankSprite;
+static volatile int g_nTankDirection = 5; // 0 for no movement, 1-8 for directions
+static volatile BOOL g_bTankMoving = FALSE;
+
 static GameObject gObj_p1_NorthBluetank = { //NORTH
 		bmpP1tankSprite1,
 		{BALL_X_SIZE, BALL_Y_SIZE}, 
@@ -210,9 +209,6 @@ static GameObject gObj_P1NEtank = { // NORTH-EAST
 		bmpP1tankSprite8,
 		{BALL_X_SIZE, BALL_Y_SIZE}, 
 		{100, 50} };		
-	
-		
-static GameObject *currentTankSprite;
 
 		
 /* Fire Sprite Variables */
@@ -270,9 +266,6 @@ static void main_AdcUpdate(void);
 static void main_AdcInit(void);
 void UpdateTankPosition(void);
 void UpdateTankSprite();
-		
-	
-		
 		
 /*****************************************************************************
  Implementation
@@ -512,6 +505,7 @@ void GUI_AppDraw( BOOL bFrameStart )
 Print_GameObject(currentTankSprite, FALSE);
 	
 	/** Print Fire Animation **/
+
 	
 //	if (g_FireFlip == FALSE)
 //	{
@@ -552,30 +546,40 @@ Print_GameObject(currentTankSprite, FALSE);
 
 switch (TankOri)
 	{
+
+
 		case 1:
-		Print_GameObject(&gObj_p1_NorthBluetank, FALSE);
-		break;
-		case 2:
 		Print_GameObject(&gObj_P1NWtank, FALSE);
 		break;
+		
+		case 2:
+		Print_GameObject(&gObj_p1_NorthBluetank, FALSE);
+		break;
+						
 		case 3:
-		Print_GameObject(&gObj_p1_WestBluetank, FALSE);
-		break;
-		case 4:
-		Print_GameObject(&gObj_P1SWtank, FALSE);
-		break;
-		case 5:
-		Print_GameObject(&gObj_p1_SouthBluetank, FALSE);
-		break;
-		case 6:
-		Print_GameObject(&gObj_P1SEtank, FALSE);
-		break;
-		case 7:
-		Print_GameObject(&gObj_p1_EastBluetank, FALSE);
-		break;
-		case 8:
 		Print_GameObject(&gObj_P1NEtank, FALSE);
 		break;
+						
+		case 4:
+		Print_GameObject(&gObj_p1_EastBluetank, FALSE);
+		break;
+										
+		case 5:
+		Print_GameObject(&gObj_P1SEtank, FALSE);
+		break;
+						
+		case 6:
+		Print_GameObject(&gObj_p1_SouthBluetank, FALSE);
+		break;
+														
+		case 7:
+		Print_GameObject(&gObj_P1SWtank, FALSE);
+		break;
+														
+//		case 3:
+//		Print_GameObject(&gObj_p1_WestBluetank, FALSE);
+//		break;
+
 	}
 }
 
@@ -602,33 +606,35 @@ void UpdateTankSprite()
 
     switch (TankOri)
     {
+			
+				case TANK_DIRECTION_NORTHWEST:
+            currentTankSprite = &gObj_P1NWtank;
+            break;
         case TANK_DIRECTION_NORTH:
             currentTankSprite = &gObj_p1_NorthBluetank;
             break;
-        case TANK_DIRECTION_NORTHWEST:
-            currentTankSprite = &gObj_P1NWtank;
-            break;
-        case TANK_DIRECTION_WEST:
-            currentTankSprite = &gObj_p1_WestBluetank;
-            break;
-        case TANK_DIRECTION_SOUTHWEST:
-            currentTankSprite = &gObj_P1SWtank;
-            break;
-        case TANK_DIRECTION_SOUTH:
-            currentTankSprite = &gObj_p1_SouthBluetank;
-            break;
-        case TANK_DIRECTION_SOUTHEAST:
-            currentTankSprite = &gObj_P1SEtank;
-            break;
-        case TANK_DIRECTION_EAST:
-            currentTankSprite = &gObj_p1_EastBluetank;
-            break;
-        case TANK_DIRECTION_NORTHEAST:
+				case TANK_DIRECTION_NORTHEAST:
             currentTankSprite = &gObj_P1NEtank;
             break;
-        default:
-            // Default sprite when direction is not recognized
-            currentTankSprite = &gObj_p1_NorthBluetank;
+				case TANK_DIRECTION_EAST:
+            currentTankSprite = &gObj_p1_EastBluetank;
+            break;
+				case TANK_DIRECTION_SOUTHEAST:
+            currentTankSprite = &gObj_P1SEtank;
+            break;	
+				case TANK_DIRECTION_SOUTH:
+            currentTankSprite = &gObj_p1_SouthBluetank;
+            break;
+				case TANK_DIRECTION_SOUTHWEST:
+            currentTankSprite = &gObj_P1SWtank;
+            break;
+
+//        case TANK_DIRECTION_WEST:																// not needed for P1
+//            currentTankSprite = &gObj_p1_WestBluetank;
+//            break;
+//        default:
+//            // Default sprite when direction is not recognized
+//            currentTankSprite = &gObj_p1_NorthBluetank;
     }
 
     // Copy the previous position to the new sprite
@@ -638,11 +644,12 @@ void UpdateTankSprite()
     }
 }
 
+
 void UpdateTankPosition()
 {
     static int tickCount = 0;
     tickCount++;
-		static int pixelSpeed = 3;
+		static int pixelSpeed = 3; // Movement speed
 
     // Only move the tank once every 500 ticks
     if (tickCount >= 200 && g_bTankMoving)
@@ -651,35 +658,37 @@ void UpdateTankPosition()
 
         switch (TankOri)
         {
+            
+						case TANK_DIRECTION_NORTHWEST:
+								currentTankSprite->pos.x -= pixelSpeed;
+                currentTankSprite->pos.y -= pixelSpeed;
+                break;						
+        
             case TANK_DIRECTION_NORTH:
-                currentTankSprite->pos.y -= pixelSpeed; // Move 1 pixel
-                break;
-            case TANK_DIRECTION_NORTHWEST:
-                currentTankSprite->pos.x -= pixelSpeed;
-                currentTankSprite->pos.y -= pixelSpeed;
-                break;
-            case TANK_DIRECTION_WEST:
-                currentTankSprite->pos.x -= pixelSpeed;
-                break;
-            case TANK_DIRECTION_SOUTHWEST:
-                currentTankSprite->pos.x -= pixelSpeed;
-                currentTankSprite->pos.y += pixelSpeed;
-                break;
-            case TANK_DIRECTION_SOUTH:
-                currentTankSprite->pos.y += pixelSpeed;
-                break;
-            case TANK_DIRECTION_SOUTHEAST:
-                currentTankSprite->pos.x += pixelSpeed;
-                currentTankSprite->pos.y += pixelSpeed;
-                break;
-            case TANK_DIRECTION_EAST:
-                currentTankSprite->pos.x += pixelSpeed;
-                break;
-            case TANK_DIRECTION_NORTHEAST:
+               currentTankSprite->pos.y -= pixelSpeed;
+						        break;
+						 case TANK_DIRECTION_NORTHEAST:
                 currentTankSprite->pos.x += pixelSpeed;
                 currentTankSprite->pos.y -= pixelSpeed;
                 break;
-            default:
+						  case TANK_DIRECTION_EAST:
+                currentTankSprite->pos.x += pixelSpeed;
+                break;
+							case TANK_DIRECTION_SOUTHEAST:
+                currentTankSprite->pos.x += pixelSpeed;
+                currentTankSprite->pos.y += pixelSpeed;
+                break;
+							 case TANK_DIRECTION_SOUTH:
+                currentTankSprite->pos.y += pixelSpeed;
+                break;
+							 case TANK_DIRECTION_SOUTHWEST:
+                currentTankSprite->pos.x -= pixelSpeed;
+                currentTankSprite->pos.y += pixelSpeed;
+                break;
+//            case TANK_DIRECTION_WEST:
+//                currentTankSprite->pos.x -= pixelSpeed;
+//                break;
+								default:
                 // No movement if the direction is not recognized
                 break;
         }
@@ -836,8 +845,8 @@ void main_AdcUpdate(void)
 
     // Simple filtering: Only update if the change is significant
     if (abs(Result_MUX0 - lastResult_MUX0) > POTENTIOMETER_THRESHOLD) {
-        TankOri = (Result_MUX0 * 8) / 4096 + 1; // Assuming 12-bit ADC resolution
-        if (TankOri > 8) TankOri = 8;
+        TankOri = (Result_MUX0 * 7) / 4096 + 1; // Assuming 12-bit ADC resolution
+        if (TankOri > 7) TankOri = 7;
         if (TankOri < 1) TankOri = 1;
 
         lastResult_MUX0 = Result_MUX0;
