@@ -45,6 +45,8 @@
 #define DEBOUNCE_DELAY 					20000
 #define FLOOR_LEVEL							160U
 #define CEILING_LEVEL						10U
+#define SCREEN_WIDTH						128U
+#define SCREEN_HEIGHT						160U
 
 // Define tank directions
 
@@ -119,7 +121,8 @@ static volatile BOOL			g_bSW1 = FALSE;
 static volatile BOOL			g_bSW2 = FALSE; 
 static volatile BOOL			SW1_press = FALSE;
 static volatile BOOL			SW2_press = FALSE;
-volatile uint32_t 				delay = 0;
+volatile uint32_t 				SW1_delay = 0;
+volatile uint32_t 				SW2_delay = 0;
 static int				 				timer = 0;
 volatile uint32_t					SW1_debounce = 0;
 volatile uint32_t					SW2_debounce = 0;
@@ -162,52 +165,52 @@ static int 									g_nTankSpeed = 1; // Adjust speed as needed
 /* Tank Sprite Directional Variables */	
 
 static GameObject *currentTankSprite;
-static volatile int g_nTankDirection = 5; // 0 for no movement, 1-8 for directions
+static volatile int g_nTankDirection = 5; // Initialize at East for P1
 static volatile BOOL g_bTankMoving = FALSE;
 
 static GameObject gObj_p1_NorthBluetank = { //NORTH
 		bmpP1tankSprite1,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{TANK_X_SIZE, TANK_Y_SIZE}, 
 		{100, 50} };		
 
 static GameObject gObj_P1NWtank = { //NORTH-WEST
 		bmpP1tankSprite2,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{TANK_X_SIZE, TANK_Y_SIZE}, 
 		{100, 50} };	
 
 		static GameObject gObj_P1NWtank2 = { //NORTH-WEST
 		bmpP1tankSprite2,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{TANK_X_SIZE, TANK_Y_SIZE}, 
 		{100, 100} };
 		
 static GameObject gObj_p1_WestBluetank = { //WEST
 		bmpP1tankSprite3,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{TANK_X_SIZE, TANK_Y_SIZE}, 
 		{100, 50} };	
 
 static GameObject gObj_P1SWtank = { // SOUTH-WEST
 		bmpP1tankSprite4,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{TANK_X_SIZE, TANK_Y_SIZE}, 
 		{100, 50} };
 
 static GameObject gObj_p1_SouthBluetank = { //SOUTH
 		bmpP1tankSprite5,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{TANK_X_SIZE, TANK_Y_SIZE}, 
 		{100, 50} };	
 
 static GameObject gObj_P1SEtank = { // SOUTH-EAST
 		bmpP1tankSprite6,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{TANK_X_SIZE, TANK_Y_SIZE}, 
 		{100, 50} };
 
 static GameObject gObj_p1_EastBluetank = { //EAST
 		bmpP1tankSprite7,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{TANK_X_SIZE, TANK_Y_SIZE}, 
 		{100, 50} };
 
 static GameObject gObj_P1NEtank = { // NORTH-EAST
 		bmpP1tankSprite8,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{TANK_X_SIZE, TANK_Y_SIZE}, 
 		{100, 50} };		
 
 		
@@ -215,16 +218,19 @@ static GameObject gObj_P1NEtank = { // NORTH-EAST
 
 static GameObject gObj_Fire1 = {
 		bmpFire1Sprite,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{FIRE_X_SIZE, FIRE_Y_SIZE}, 
 		{40, 40} };	
 static GameObject gObj_Fire2 = {
 		bmpFire2Sprite,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{FIRE_X_SIZE, FIRE_Y_SIZE}, 
 		{40, 40} };	
+
+		
+/* Misc Sprite Variables */
 
 static GameObject gObj_Cactus = {
 bmpCactusSprite,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{MISC_X_SIZE, MISC_Y_SIZE}, 
 		{128, 128} };	
 
 
@@ -232,24 +238,37 @@ bmpCactusSprite,
 
 static GameObject gObj_Explosion1 = {
 		bmpExplosion1Sprite,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{EXP_X_SIZE, EXP_Y_SIZE}, 
 		{20, 20} };	
 static GameObject gObj_Explosion2 = {
 		bmpExplosion2Sprite,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{EXP_X_SIZE, EXP_Y_SIZE}, 
 		{20, 20} };	
 static GameObject gObj_Explosion3 = {
 		bmpExplosion3Sprite,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{EXP_X_SIZE, EXP_Y_SIZE}, 
 		{20, 20} };	
 static GameObject gObj_Explosion4 = {
 		bmpExplosion4Sprite,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{EXP_X_SIZE, EXP_Y_SIZE}, 
 		{20, 20} };	
 static GameObject gObj_Explosion5 = {
 		bmpExplosion5Sprite,
-		{BALL_X_SIZE, BALL_Y_SIZE}, 
+		{EXP_X_SIZE, EXP_Y_SIZE}, 
 		{20, 20} };
+
+		
+	/* Bullet Sprite Variables */
+		
+static volatile	BOOL bulletActive = FALSE;
+		// Global variable to store bullet direction
+static int g_nBulletDirection = 5;
+		
+static GameObject gObj_Bullet = {
+		bmpBulletSprite,
+		{BULLET_X_SIZE, BULLET_Y_SIZE},
+		{0,0},
+		{0,0} };
 
 
 /*****************************************************************************
@@ -266,6 +285,8 @@ static void main_AdcUpdate(void);
 static void main_AdcInit(void);
 void UpdateTankPosition(void);
 void UpdateTankSprite();
+void InitBullet();
+void UpdateBulletPosition();
 		
 /*****************************************************************************
  Implementation
@@ -293,14 +314,14 @@ int main()
 	IRQ_Init(); // Initialize Interrupt handler
 	
 	main_AdcInit();
-	
-	 // Print all tank sprites
-    currentTankSprite = &gObj_p1_NorthBluetank;
+
+  currentTankSprite = &gObj_p1_EastBluetank;
+
 	
 	
 	/*	Infinite FOR Loop, all functions that need to be looped, place here		*/
 	for(;;)
-  {
+  { //////////////////////// START OF FOR LOOP //////////////////////////////////////////////
 		main_AdcUpdate();
 
 		IN_FLAG = FALSE;
@@ -321,7 +342,7 @@ int main()
 		
 		if (SW1_press == TRUE)
 		{
-			delay = 0;
+			SW1_delay = 0;
 			SW1_debounce++;
 			if ((SW1_debounce > DEBOUNCE_DELAY) && SW1_press == TRUE)
 			{
@@ -329,12 +350,24 @@ int main()
 				SW1_debounce = 0;
 			}
 			
-				if (g_TankLifeCounter < 0) // If Tank lives drop below 0
-				{
-					g_TankLifeCounter = 3; // Reset to 3
-				}
+//				if (g_TankLifeCounter < 0) // If Tank lives drop below 0
+//				{
+//					g_TankLifeCounter = 3; // Reset to 3
+//				}
 		}
-	}
+		
+		/* SW2 Debounce Function */
+		
+		if (SW2_press == TRUE)
+		{
+			SW2_delay = 0;
+			SW2_debounce++;
+			if ((SW2_debounce > DEBOUNCE_DELAY) && SW2_press == TRUE)
+			{
+				SW2_debounce = 0;
+			}
+		}
+	
 		
 	/* Keypad Functions */
 	
@@ -342,20 +375,9 @@ int main()
 		{
 			g_bKeypadScan = FALSE;
 			main_KeyScan();   // TODO add directional input to TANK here
-		}
-		 // Handle tank movement
-        if (SW1_press)
-        {
-            g_bTankMoving = TRUE; // Tank is moving as long as SW1 is pressed
-            UpdateTankPosition(); // Update tank position based on direction
-        }
-        else
-        {
-            g_bTankMoving = FALSE; // Tank stops moving when SW1 is released
-        }
-
-        UpdateTankSprite(); // Update tank sprite based on direction
-		}			
+			}
+		}			/////////////////////// END OF FOR LOOP//////////////////////////////////////////
+	} 
 		
 	
 
@@ -478,9 +500,16 @@ if (SW1_press == FALSE && g_TankLifeCounter == 0) // When player dead
     {
         g_bTankMoving = FALSE; // Tank stops moving when SW1 is released
     }
+		
+					 if (bulletActive) {
+        UpdateBulletPosition();
+    }
+		}
+	
+		
 
 			
-}
+
 
 //////////////////////////////end of Systick Handler//////////////////////////////////////
 
@@ -496,13 +525,17 @@ void GUI_AppDraw( BOOL bFrameStart )
 	
 	//GUI_SetColor(ClrYellow);	// Screen Border
 	//GUI_DrawRect(0,0,159,127);
+	
 	GUI_SetFont (&g_FontComic16);
 
 //	sprintf(buf, "LIVES: %d", g_TankLifeCounter); // Print Life counter to LCD
 //		GUI_PrintString(buf, ClrWhite, 10, 60);
 
-
-Print_GameObject(currentTankSprite, FALSE);
+Print_GameObject(currentTankSprite, TRUE);
+	
+	if (bulletActive) {
+    Print_GameObject(&gObj_Bullet, FALSE); // TRUE to draw hitbox, if needed
+}
 	
 	/** Print Fire Animation **/
 
@@ -546,34 +579,32 @@ Print_GameObject(currentTankSprite, FALSE);
 
 switch (TankOri)
 	{
-
-
 		case 1:
-		Print_GameObject(&gObj_P1NWtank, FALSE);
+		Print_GameObject(&gObj_P1NWtank, TRUE);
 		break;
 		
 		case 2:
-		Print_GameObject(&gObj_p1_NorthBluetank, FALSE);
+		Print_GameObject(&gObj_p1_NorthBluetank, TRUE);
 		break;
 						
 		case 3:
-		Print_GameObject(&gObj_P1NEtank, FALSE);
+		Print_GameObject(&gObj_P1NEtank, TRUE);
 		break;
 						
 		case 4:
-		Print_GameObject(&gObj_p1_EastBluetank, FALSE);
+		Print_GameObject(&gObj_p1_EastBluetank, TRUE);
 		break;
 										
 		case 5:
-		Print_GameObject(&gObj_P1SEtank, FALSE);
+		Print_GameObject(&gObj_P1SEtank, TRUE);
 		break;
 						
 		case 6:
-		Print_GameObject(&gObj_p1_SouthBluetank, FALSE);
+		Print_GameObject(&gObj_p1_SouthBluetank, TRUE);
 		break;
 														
 		case 7:
-		Print_GameObject(&gObj_P1SWtank, FALSE);
+		Print_GameObject(&gObj_P1SWtank, TRUE);
 		break;
 														
 //		case 3:
@@ -649,7 +680,7 @@ void UpdateTankPosition()
 {
     static int tickCount = 0;
     tickCount++;
-		static int pixelSpeed = 3; // Movement speed
+		static int pixelSpeed = 2; // Movement speed
 
     // Only move the tank once every 500 ticks
     if (tickCount >= 200 && g_bTankMoving)
@@ -695,7 +726,101 @@ void UpdateTankPosition()
     }
 }
 		
+void InitBullet() {
+    gObj_Bullet.sprite = bmpBulletSprite;
+    gObj_Bullet.size.x = BULLET_X_SIZE;
+    gObj_Bullet.size.y = BULLET_Y_SIZE;
 
+    // Calculate bullet initial position based on the tank's orientation
+		// DO NOT ADJUST THESE VALUES!!! THEY HAVE BEEN CALIBRATED TO THE TANK'S FRONT ALREADY
+    switch (TankOri) {
+			
+			  case TANK_DIRECTION_NORTHWEST:
+            gObj_Bullet.pos.x = currentTankSprite->pos.x + 2;
+            gObj_Bullet.pos.y = currentTankSprite->pos.y ;
+            break;
+        case TANK_DIRECTION_NORTH:
+            gObj_Bullet.pos.x = currentTankSprite->pos.x + 1;
+            gObj_Bullet.pos.y = currentTankSprite->pos.y - 5;
+            break;
+        case TANK_DIRECTION_NORTHEAST:
+            gObj_Bullet.pos.x = currentTankSprite->pos.x + 5;
+            gObj_Bullet.pos.y = currentTankSprite->pos.y - 6;
+            break;
+        case TANK_DIRECTION_EAST:
+            gObj_Bullet.pos.x = currentTankSprite->pos.x + 5;
+            gObj_Bullet.pos.y = currentTankSprite->pos.y - 3;
+            break;
+        case TANK_DIRECTION_SOUTHEAST:
+            gObj_Bullet.pos.x = currentTankSprite->pos.x;
+            gObj_Bullet.pos.y = currentTankSprite->pos.y - 4;
+            break;
+        case TANK_DIRECTION_SOUTH:
+            gObj_Bullet.pos.x = currentTankSprite->pos.x + 1;
+            gObj_Bullet.pos.y = currentTankSprite->pos.y + 3;
+            break;
+        case TANK_DIRECTION_SOUTHWEST:
+            gObj_Bullet.pos.x = currentTankSprite->pos.x - 1;
+            gObj_Bullet.pos.y = currentTankSprite->pos.y - 1 ;
+            break;
+
+    }
+
+    bulletActive = TRUE; // Activate the bullet
+}
+
+void UpdateBulletPosition() {
+    if (!bulletActive) return;
+
+     static int tickCountBullet = 0;
+    tickCountBullet++;
+		static int BulletSpeed = 6; // Movement speed
+
+    // Only move the tank once every 500 ticks
+    if (tickCountBullet >= 200 && g_bTankMoving)
+    {
+        tickCountBullet = 0; // Reset tick counter
+
+    switch(g_nBulletDirection) {
+			        case TANK_DIRECTION_NORTHWEST:
+            gObj_Bullet.pos.x -= BulletSpeed;
+            gObj_Bullet.pos.y -= BulletSpeed;
+            break;
+        case TANK_DIRECTION_NORTH:
+            gObj_Bullet.pos.y -= BulletSpeed;
+            break;
+				        case TANK_DIRECTION_NORTHEAST:
+            gObj_Bullet.pos.x += BulletSpeed;
+            gObj_Bullet.pos.y -= BulletSpeed;
+            break;
+								        case TANK_DIRECTION_EAST:
+            gObj_Bullet.pos.x += BulletSpeed;
+            break;
+												        case TANK_DIRECTION_SOUTHEAST:
+            gObj_Bullet.pos.x += BulletSpeed;
+            gObj_Bullet.pos.y += BulletSpeed;
+            break;
+																        case TANK_DIRECTION_SOUTH:
+            gObj_Bullet.pos.y += BulletSpeed;
+            break;
+
+        case TANK_DIRECTION_SOUTHWEST:
+            gObj_Bullet.pos.x -= BulletSpeed;
+            gObj_Bullet.pos.y += BulletSpeed;
+            break;
+
+
+
+
+    }
+
+    // Check for border collision
+   if (gObj_Bullet.pos.y <= 0 || gObj_Bullet.pos.y >= SCREEN_HEIGHT 
+        || gObj_Bullet.pos.x <= 0 || gObj_Bullet.pos.x >= SCREEN_WIDTH) {
+        bulletActive = FALSE; // Deactivate the bullet
+    }
+	}
+}
 
 /*************************** Keypad Parameters ******************************/
 
@@ -906,28 +1031,23 @@ static void main_KeypadOutput(void)
 		LED_RGB_SET(nRGB);
 	}
 }
-	void GPIOF_Button_IRQHandler( uint32_t Status )
-{
-/* check if it is SW2 (PF0) intr */
-	
-	if( 0 != (Status & BIT(PF_SW2 ) )){
-	GPIOF->ICR = BIT(PF_SW2); /* clear intr */
-	SW2_press = TRUE;
-	}
-/* check if it is SW1 (PF4) interrupt */
-if (0 != (Status & BIT(PF_SW1)))
-    {
+	void GPIOF_Button_IRQHandler(uint32_t Status) {
+    /* Check if it is SW2 (PF0) interrupt */
+    if (0 != (Status & BIT(PF_SW2))) {
+        GPIOF->ICR = BIT(PF_SW2); // Clear interrupt
+
+        // Fire a bullet regardless of the previous bullet's state
+        g_nBulletDirection = TankOri; // Set bullet direction to current tank orientation
+        InitBullet(); // Initialize bullet position and set it active
+    }
+
+    /* Check if it is SW1 (PF4) interrupt */
+    if (0 != (Status & BIT(PF_SW1))) {
         GPIOF->ICR = BIT(PF_SW1); // Clear interrupt
         SW1_press = !SW1_press;
-        g_bTankMoving = SW1_press; // Set tank moving state based on SW1
-			 }
-    else
-    {
-        SW1_press = FALSE;
-        g_bTankMoving = FALSE;  // Stop tank when SW1 is released
+        g_bTankMoving = SW1_press; // Continue tank movement
     }
-	
-	}
+}
 
 
 /*****************************************************************************

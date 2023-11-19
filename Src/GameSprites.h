@@ -20,8 +20,16 @@
 /*****************************************************************************
  Global Variables
 ******************************************************************************/
+	/* Border Sprite */
+	
+	//TODO: Add border as a sprite, so that can make hitbox
+	
+	
+	
+	
+	
 	/* Ball Sprite */
-	const unsigned short bmpBallSprite[] = 
+	const unsigned short bmpBulletSprite[] = 
 	{ 
 		4, 4, 0,
 		0x0000,0x0FF0,0x0FF0,0x0000,
