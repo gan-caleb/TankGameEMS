@@ -14,4 +14,5 @@
   ..\Src\App\LED\LED.h ..\Src\BSP\IRQ.h ..\Src\BSP\SPI\spim.h \
   ..\Src\App\LCD\LCD_ST7735R.h ..\Src\App\LCD\gui.h \
   ..\Src\BSP\UART\UART.h C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\math.h \
-  ..\Src\GameObj.h ..\Src\GamePool.h ..\Src\GameSprites.h
+  ..\Src\GameObj.h ..\Src\GamePool.h ..\Src\GameSprites.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\time.h
