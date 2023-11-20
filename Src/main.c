@@ -144,8 +144,9 @@ static volatile BOOL  		buzz_flag;
 
 /*	Fire Sprite Variables  */
 static volatile int					g_FireCounter = 150;
-static volatile BOOL				g_FireFlip = FALSE;
+static volatile int					g_FireFlip = 1;
 static int 									s_FireToggleCounter = 0;
+static volatile BOOL        FireAnimate = FALSE;
 
 /* Explosion Sprite Variables */
 static volatile int					g_ExplosionCounter = 200;
@@ -207,6 +208,8 @@ static GameObject gObj_Blue_NE_tank = { // NORTH-EAST
 		{TANK_X_SIZE, TANK_Y_SIZE}, 
 		{20, 70} };		
 
+static volatile BOOL TankHitCheck2 = FALSE;
+
 		
 /* RED */
 		
@@ -248,15 +251,17 @@ static GameObject gObj_red_NE_tank = { // NORTH-EAST
 
 		
 /* Fire Sprite Variables */
+		
+static GameObject *currentFireSprite;
 
 static GameObject gObj_Fire1 = {
 		bmpFire1Sprite,
 		{FIRE_X_SIZE, FIRE_Y_SIZE}, 
-		{40, 40} };	
+		{0, 0} };	
 static GameObject gObj_Fire2 = {
 		bmpFire2Sprite,
 		{FIRE_X_SIZE, FIRE_Y_SIZE}, 
-		{40, 40} };	
+		{0, 0} };	
 
 		
 /* Misc Sprite Variables */
@@ -353,6 +358,7 @@ int main()
 
   currentTankSprite1 = &gObj_Blue_E_tank;
 	currentTankSprite2 = &gObj_red_W_tank;
+	currentFireSprite = &gObj_Fire1;
 	
 //	srand(time(NULL)); // Seed the random number generator
 
@@ -410,12 +416,7 @@ int main()
 			g_bKeypadScan = FALSE;
 			main_KeyScan();   // TODO add directional input to TANK here
 			}
-		
-//	/* Life Counter */
-//				if (g_TankLifeCounter2 < 3) // If Tank lives drop below 0
-//				{
-//					g_TankLifeCounter2 = 3; // Reset to 3
-//				}
+
 		}			/////////////////////// END OF FOR LOOP//////////////////////////////////////////
 	} 
 		
@@ -486,30 +487,81 @@ void SysTick_Handler( void )
 
 	 if (bulletActive) {
         UpdateBulletPosition();
+		 
+		 ///////////////////////// COLLISION MAP /////////////////////////////////////
 						 
-			 // Check collision between the bullet and Tank 2
+			 // CHECK WHETHER TANK IS HIT
      if (CheckCollision(&gObj_Bullet, currentTankSprite2) || CollisionCheck == TRUE) {
-				g_TankLifeCounter2--;
+				
+				
+				TankHitCheck2 = TRUE;    // Tank is confirm hit
+			 
+			 
+			 
+			 if (TankHitCheck2 == TRUE && g_TankLifeCounter2 == 2 ) {
+        // The explosion has just ended, respawn Tank 2
 				explosionInProgress = TRUE;
 				ExplosionAnimate();
-				
-			 
-//			 if (g_TankLifeCounter2 < 3 && g_TankLifeCounter2 != 0) {
-//        // The explosion has just ended, respawn Tank 2
         int new_x = 120;
 				int new_y = 90;
 
         currentTankSprite2->pos.x = new_x;
         currentTankSprite2->pos.y = new_y;
+				TankHitCheck2 = FALSE;
     
-		
+			 
 			}
+			 
+				if (TankHitCheck2 == TRUE && g_TankLifeCounter2 == 1 ) {
+        // The explosion has just ended, respawn Tank 2
+				explosionInProgress = TRUE;
+				ExplosionAnimate();
+        int new_x = 50;
+				int new_y = 20;
+
+        currentTankSprite2->pos.x = new_x;
+        currentTankSprite2->pos.y = new_y;
+				TankHitCheck2 = FALSE;
+				
+    
+			 
+			}
+			  if (TankHitCheck2 == TRUE && g_TankLifeCounter2 == 0) {
+        // The explosion has just ended, respawn Tank 2
+				FireAnimate = TRUE;
+        int new_x = 30;
+				int new_y = 40;
+					
+				currentTankSprite2->pos.x = new_x;
+        currentTankSprite2->pos.y = new_y;
+				TankHitCheck2 = FALSE;
+					
+
+    
+			 
+			
+					
+
+    
+			 
+			}
+//				if (TankHitCheck2 == TRUE && g_TankLifeCounter2 == 0) {
+//        // The explosion has just ended, respawn Tank 2
+//			FireAnimate = TRUE;
+//        int new_x = 30;
+//				int new_y = 40;
+//					
+//        currentTankSprite2->pos.x = new_x;
+//        currentTankSprite2->pos.y = new_y;
+//				TankHitCheck2 = FALSE;
+//				}
 		}
+	}
 			
 
 	/** TESTING for Fire animation when Life drops to 0 **/
 
-//if (SW1_press == FALSE && g_TankLifeCounter == 0) // When player dead
+//if (g_TankLifeCounter2 == 0) // When player dead
 
 //    {
 //        
@@ -560,8 +612,8 @@ void GUI_AppDraw( BOOL bFrameStart )
 	GUI_Clear( ClrKhaki ); /* Set background colour */
 	GUI_SetFont (&g_FontComic16);
 
-//	sprintf(buf, "LIVES: %d", g_TankLifeCounter); // Print Life counter to LCD
-//		GUI_PrintString(buf, ClrWhite, 10, 60);
+	sprintf(buf, "LIVES: %d", g_TankLifeCounter2); // Print Life counter to LCD
+		GUI_PrintString(buf, ClrBlack, 10, 60);
 
 Print_GameObject(currentTankSprite1, TRUE);
 	
@@ -582,6 +634,20 @@ Print_GameObject(currentTankSprite1, TRUE);
 //	{
 //	Print_GameObject(&gObj_Fire2, FALSE);
 //	}
+
+
+if (FireAnimate) {
+	switch (g_FireFlip) {
+		case 1:
+			Print_GameObject(&gObj_Fire1, FALSE);
+		 gObj_Fire1.pos = currentTankSprite2->pos;
+		break;
+		case 2:
+			Print_GameObject(&gObj_Fire2, FALSE);
+		gObj_Fire2.pos = currentTankSprite2->pos;
+		break;
+	}
+}
 
 	
 	/** Print Explosion Animation **/
@@ -888,7 +954,9 @@ static volatile BOOL CheckCollision(GameObject *bullet, GameObject *tank) {
     // Check if any side of the bullet is inside the tank's hitbox
     if (bulletLeft < tankRight && bulletRight > tankLeft &&
         bulletTop < tankBottom && bulletBottom > tankTop) { 
+					g_TankLifeCounter2--;
 				CollisionCheck = TRUE;
+				
         return TRUE;
     }
 
