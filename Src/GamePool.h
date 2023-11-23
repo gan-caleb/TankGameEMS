@@ -21,7 +21,12 @@
 ******************************************************************************/
 #include "GameObj.h"
 
-#define TANK_X_SIZE					10U
+// For constraining of hitboxes
+
+#define TITLE_X_SIZE				21U			
+#define TITLE_Y_SIZE				15U
+
+#define TANK_X_SIZE					13U
 #define TANK_Y_SIZE					11U	
 
 #define FIRE_X_SIZE					18U
@@ -38,6 +43,12 @@
 
 #define	BORDER_X_SIZE				160U
 #define	BORDER_Y_SIZE				128U
+
+#define	SIDEBORDER_X_SIZE		3U
+#define	SIDEBORDER_Y_SIZE		90U
+
+#define	FLATBORDER_X_SIZE		160U
+#define	FLATBORDER_Y_SIZE		3U
 
 
 /*****************************************************************************

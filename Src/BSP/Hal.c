@@ -90,13 +90,9 @@ void Port_Init( void )
 	GPIOB->DEN |= BIT(PB_T3CCP0);	
 	GPIOB->AFSEL &= ~BIT(PB_T3CCP0);
 
-	/* LED */
-	GPIOF->CR |= BIT(PF_LED_RED) | BIT(PF_LED_GREEN) | BIT(PF_LED_BLUE);
-	GPIOF->DIR |= BIT(PF_LED_RED) | BIT(PF_LED_GREEN) | BIT(PF_LED_BLUE);
-	GPIOF->DEN |= BIT(PF_LED_RED) | BIT(PF_LED_GREEN) | BIT(PF_LED_BLUE);
-	GPIOF->AFSEL &= ~(BIT(PF_LED_RED) | BIT(PF_LED_GREEN) | BIT(PF_LED_BLUE));
+	
 
-	/* User button SW1 & SW2 */
+	/* User button SW1 & SW2 PLAYER 1 */
 	GPIOF->LOCK = GPIO_LOCK_KEY;
 	
 	GPIOF->CR |= (BIT(PF_SW1) | BIT(PF_SW2));
@@ -112,12 +108,31 @@ void Port_Init( void )
 	GPIOF->IEV = ~(BIT(PF_SW1) | BIT(PF_SW2)); /* Falling edge */
 	GPIOF->IM |= (BIT(PF_SW1) | BIT(PF_SW2));
 	
-	/* Unlock GPIO PF[0] */
-	GPIOF->LOCK = GPIO_LOCK_KEY;	/* Unlock Port F (pg 684)		*/
-  GPIOF->CR |= BIT(PF_SW2);			/* Set Commit Control register for PF[0] */
-	GPIOF->DIR &= ~( BIT(PF_SW1) | BIT(PF_SW2) );
-	GPIOF->PUR |= (BIT(PF_SW1) | BIT(PF_SW2));
-	GPIOF->DEN |= (BIT(PF_SW1) | BIT(PF_SW2));
+/* Host Board Configuration - Using LED Pins as Inputs for PLAYER 2 */
+
+// Allow changes to PF_LED_RED and PF_LED_BLUE
+GPIOF->CR |= BIT(PF_LED_RED) | BIT(PF_LED_BLUE);
+
+// Set PF_LED_RED and PF_LED_BLUE as inputs
+GPIOF->DIR &= ~(BIT(PF_LED_RED) | BIT(PF_LED_BLUE));
+
+// Enable digital functionality for PF_LED_RED and PF_LED_BLUE
+GPIOF->DEN |= BIT(PF_LED_RED) | BIT(PF_LED_BLUE);
+
+// Disable alternate functions for PF_LED_RED and PF_LED_BLUE
+GPIOF->AFSEL &= ~(BIT(PF_LED_RED) | BIT(PF_LED_BLUE));
+GPIOF->PCTL &= ~(BIT(PF_LED_RED) | BIT(PF_LED_BLUE));
+
+// If using internal pull-up resistors
+GPIOF->PUR |= BIT(PF_LED_RED) | BIT(PF_LED_BLUE);
+
+// Configure interrupt settings (if using interrupts)
+GPIOF->IM &= ~(BIT(PF_LED_RED) | BIT(PF_LED_BLUE)); // Disable interrupts
+GPIOF->IS &= ~(BIT(PF_LED_RED) | BIT(PF_LED_BLUE)); // Edge trigger
+GPIOF->IBE &= ~(BIT(PF_LED_RED) | BIT(PF_LED_BLUE)); // Single edge
+GPIOF->IEV &= ~(BIT(PF_LED_RED) | BIT(PF_LED_BLUE)); // Falling edge
+GPIOF->IM |= BIT(PF_LED_RED) | BIT(PF_LED_BLUE); // Re-enable interrupts
+
 
 	GPIOB->LOCK = GPIO_LOCK_KEY;	/* Unlock Port B */
   GPIOB->CR |= BIT(PB_6);					/* Set the Commit Control register for PB6 */

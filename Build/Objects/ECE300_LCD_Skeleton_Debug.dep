@@ -1,286 +1,341 @@
 Dependencies for Project 'ECE300_LCD_Skeleton', Target 'Debug': (DO NOT MODIFY !)
 CompilerVersion: 6190000::V6.19::ARMCLANG
-F (..\Src\main.c)(0x655B5B50)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/main.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+F (..\Src\main.c)(0x655F6C9E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/main.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\BSP\Hal.h)(0x6554495E)
-I (..\Src\BSP\BSP.h)(0x655385B2)
-I (..\Src\App\LED\LED.h)(0x655385B2)
-I (..\Src\BSP\IRQ.h)(0x655385B2)
-I (..\Src\BSP\SPI\spim.h)(0x655385B2)
-I (..\Src\App\LCD\LCD_ST7735R.h)(0x655385B2)
-I (..\Src\App\LCD\gui.h)(0x655385B2)
-I (..\Src\BSP\UART\UART.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\BSP\Hal.h)(0x655C859E)
+I (..\Src\BSP\BSP.h)(0x655C859E)
+I (..\Src\App\LED\LED.h)(0x655C859E)
+I (..\Src\BSP\IRQ.h)(0x655C859F)
+I (..\Src\BSP\SPI\spim.h)(0x655C859F)
+I (..\Src\App\LCD\LCD_ST7735R.h)(0x655C859E)
+I (..\Src\App\LCD\gui.h)(0x655C859E)
+I (..\Src\BSP\UART\UART.h)(0x655C859F)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63884908)
-I (..\Src\GameObj.h)(0x65572D01)
-I (..\Src\GamePool.h)(0x655A39FD)
-I (..\Src\GameSprites.h)(0x655AE87E)
+I (..\Src\GameObj.h)(0x655C859E)
+I (..\Src\GamePool.h)(0x655F5AB9)
+I (..\Src\GameSprites.h)(0x655CB057)
 I (C:\Keil_v5\ARM\ARMCLANG\include\time.h)(0x63884908)
-F (..\Src\GameObj.c)(0x6559C4E7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/gameobj.o -MD)
-I (..\Src\GameObj.h)(0x65572D01)
+F (..\Src\GameObj.c)(0x655CA00B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/gameobj.o -MD)
+I (..\Src\GameObj.h)(0x655C859E)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\App\LCD\gui.h)(0x655385B2)
-F (..\Src\GameObj.h)(0x65572D01)()
-F (..\Src\GamePool.h)(0x655A39FD)()
-F (..\Src\GameSprites.h)(0x655AE87E)()
-F (..\Src\App\LED\LED.h)(0x655385B2)()
-F (..\Src\App\LCD\DPGUI_KEIL_CM4_V11.lib)(0x655385B2)()
-F (..\Src\App\LCD\LCD_ST7735R.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/lcd_st7735r.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
-I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
-I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
-I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
-I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\BSP\Hal.h)(0x6554495E)
-I (..\Src\BSP\SPI\spim.h)(0x655385B2)
-I (..\Src\App\LCD\LCD_ST7735R.h)(0x655385B2)
-I (..\Src\App\LCD\gui.h)(0x655385B2)
-F (..\Src\App\LCD\fontarialbold16.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontarialbold16.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\App\LCD\gui.h)(0x655C859E)
+F (..\Src\GameObj.h)(0x655C859E)()
+F (..\Src\GamePool.h)(0x655F5AB9)()
+F (..\Src\GameSprites.h)(0x655CB057)()
+F (..\Src\App\LED\LED.h)(0x655C859E)()
+F (..\Src\App\LCD\DPGUI_KEIL_CM4_V11.lib)(0x655C859E)()
+F (..\Src\App\LCD\LCD_ST7735R.c)(0x655CA0B9)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/lcd_st7735r.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\App\LCD\GUI.h)(0x655385B2)
-F (..\Src\App\LCD\fontarialbold12.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontarialbold12.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\BSP\Hal.h)(0x655C859E)
+I (..\Src\BSP\SPI\spim.h)(0x655C859F)
+I (..\Src\App\LCD\LCD_ST7735R.h)(0x655C859E)
+I (..\Src\App\LCD\gui.h)(0x655C859E)
+F (..\Src\App\LCD\fontarialbold16.c)(0x655C859E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontarialbold16.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\App\LCD\GUI.h)(0x655385B2)
-F (..\Src\App\LCD\fontarialbold24.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontarialbold24.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\App\LCD\GUI.h)(0x655C859E)
+F (..\Src\App\LCD\fontarialbold12.c)(0x655C859E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontarialbold12.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\App\LCD\GUI.h)(0x655385B2)
-F (..\Src\App\LCD\fontdigital720.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontdigital720.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\App\LCD\GUI.h)(0x655C859E)
+F (..\Src\App\LCD\fontarialbold24.c)(0x655C859E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontarialbold24.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\App\LCD\GUI.h)(0x655385B2)
-F (..\Src\App\LCD\fontbradhitc16.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontbradhitc16.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\App\LCD\GUI.h)(0x655C859E)
+F (..\Src\App\LCD\fontdigital720.c)(0x655C859E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontdigital720.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\App\LCD\GUI.h)(0x655385B2)
-F (..\Src\App\LCD\fontemoticons24.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontemoticons24.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\App\LCD\GUI.h)(0x655C859E)
+F (..\Src\App\LCD\fontbradhitc16.c)(0x655C859E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontbradhitc16.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\App\LCD\GUI.h)(0x655385B2)
-F (..\Src\App\LCD\fontcomic16.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontcomic16.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\App\LCD\GUI.h)(0x655C859E)
+F (..\Src\App\LCD\fontemoticons24.c)(0x655C859E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontemoticons24.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\App\LCD\GUI.h)(0x655385B2)
-F (..\Src\BSP\BSP.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/bsp.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\App\LCD\GUI.h)(0x655C859E)
+F (..\Src\App\LCD\fontcomic16.c)(0x655C859E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/fontcomic16.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\BSP\Hal.h)(0x6554495E)
-I (..\Src\BSP\BSP.h)(0x655385B2)
-F (..\Src\BSP\Hal.c)(0x655B06C5)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/hal.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\App\LCD\GUI.h)(0x655C859E)
+F (..\Src\BSP\BSP.c)(0x655C859E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/bsp.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\BSP\Hal.h)(0x6554495E)
-F (..\Src\BSP\IRQ.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/irq.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\BSP\Hal.h)(0x655C859E)
+I (..\Src\BSP\BSP.h)(0x655C859E)
+F (..\Src\BSP\Hal.c)(0x655F5725)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/hal.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\BSP\Hal.h)(0x6554495E)
-I (..\Src\BSP\BSP.h)(0x655385B2)
-I (..\Src\BSP\IRQ.h)(0x655385B2)
-F (..\Src\BSP\Hal.h)(0x6554495E)()
-F (..\Src\BSP\IRQ.h)(0x655385B2)()
-F (..\Src\BSP\BSP.h)(0x655385B2)()
-F (..\Src\BSP\UART\UART.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/uart.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\BSP\Hal.h)(0x655C859E)
+F (..\Src\BSP\IRQ.c)(0x655C859E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/irq.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\BSP\UART\UART.h)(0x655385B2)
-F (..\Src\BSP\retarget.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/retarget.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\BSP\Hal.h)(0x655C859E)
+I (..\Src\BSP\BSP.h)(0x655C859E)
+I (..\Src\BSP\IRQ.h)(0x655C859F)
+F (..\Src\BSP\Hal.h)(0x655C859E)()
+F (..\Src\BSP\IRQ.h)(0x655C859F)()
+F (..\Src\BSP\BSP.h)(0x655C859E)()
+F (..\Src\BSP\UART\UART.c)(0x655C859F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/uart.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-I (..\Src\BSP\Hal.h)(0x6554495E)
-I (..\Src\BSP\UART\UART.h)(0x655385B2)
-F (..\Src\BSP\MCU\startup_TM4C123.s)(0x655385B2)(--cpu Cortex-M4.fp.sp -g --diag_suppress=A1950W-I.\RTE\_Debug-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\user\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 538"--pd "_RTE_ SETA 1"--pd "TM4C123GH6PM SETA 1"--pd "_RTE_ SETA 1"--list .\listings\startup_tm4c123.lst--xref -o .\objects\startup_tm4c123.o--depend .\objects\startup_tm4c123.d)
-F (..\Src\BSP\MCU\system_TM4C123.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/system_tm4c123.o -MD)
-I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
-I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
-I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
-I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
-I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
-I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
-F (..\Src\BSP\SPI\spim.c)(0x655385B2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/spim.o -MD)
-I (..\Lib\Inc\Common.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\BSP\UART\UART.h)(0x655C859F)
+F (..\Src\BSP\retarget.c)(0x655C859F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/retarget.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
-I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655385B2)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
 I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
-I (..\Src\BSP\MCU\system_TM4C123.h)(0x655385B2)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\BSP\Hal.h)(0x655C859E)
+I (..\Src\BSP\UART\UART.h)(0x655C859F)
+F (..\Src\BSP\MCU\startup_TM4C123.s)(0x655C859F)(--cpu Cortex-M4.fp.sp -g --diag_suppress=A1950W-I.\RTE\_Debug-IC:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-IC:\Users\user\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 538"--pd "_RTE_ SETA 1"--pd "TM4C123GH6PM SETA 1"--pd "_RTE_ SETA 1"--list .\listings\startup_tm4c123.lst--xref -o .\objects\startup_tm4c123.o--depend .\objects\startup_tm4c123.d)
+F (..\Src\BSP\MCU\system_TM4C123.c)(0x655C859F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/system_tm4c123.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+F (..\Src\BSP\SPI\spim.c)(0x655C859F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/spim.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
 I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x63884908)
-I (..\Src\BSP\Hal.h)(0x6554495E)
-I (..\Src\BSP\SPI\spim.h)(0x655385B2)
-F (..\Src\BSP\SPI\spim.h)(0x655385B2)()
+I (..\Src\BSP\Hal.h)(0x655C859E)
+I (..\Src\BSP\SPI\spim.h)(0x655C859F)
+F (..\Src\BSP\SPI\spim.h)(0x655C859F)()
+F (..\Src\BSP\I2C\AHT10.c)(0x655E4DAF)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/aht10.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\BSP\BSP.h)(0x655C859E)
+I (..\Src\BSP\IRQ.h)(0x655C859F)
+I (..\Src\BSP\I2C\i2c.h)(0x655D6F71)
+I (..\Src\BSP\I2C\AHT10.h)(0x655D6F71)
+F (..\Src\BSP\I2C\AHT10.h)(0x655D6F71)()
+F (..\Src\BSP\I2C\i2c.c)(0x655E4DAF)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/i2c.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\BSP\hal.h)(0x655C859E)
+I (..\Src\BSP\I2C\i2c.h)(0x655D6F71)
+F (..\Src\BSP\I2C\i2c.h)(0x655D6F71)()
+F (..\Src\BSP\I2C\i2c.lib)(0x655D6F71)()
+F (..\Src\BSP\I2C\MCP23017.c)(0x655E4DD6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/mcp23017.o -MD)
+I (..\Lib\Inc\Common.h)(0x655C859D)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x63884908)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
+I (..\Src\BSP\MCU\TM4C123GH6PM7.h)(0x655C859F)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F4ADE)
+I (C:\Users\user\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626F4ADE)
+I (..\Src\BSP\MCU\system_TM4C123.h)(0x655C859F)
+I (..\Src\BSP\BSP.h)(0x655C859E)
+I (..\Src\BSP\I2C\i2c.h)(0x655D6F71)
+I (..\Src\BSP\I2C\MCP23017.h)(0x655D6F71)
+F (..\Src\BSP\I2C\MCP23017.h)(0x655D6F71)()
 F (C:/Users/user/AppData/Local/Arm/Packs/Keil/ARM_Compiler/1.7.2/Source/retarget_io.c)(0x584E29BE)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ../Src/BSP -I ../Src/BSP/MCU -I ../Src/BSP/SPI -I ../Src/App/LCD -I ../Src/App/LED -I ../Lib/Inc -I ../Src/BSP/UART -I ../Src-I./RTE/_Debug-IC:/Users/user/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/user/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="538" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/retarget_io.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x63884908)
@@ -288,4 +343,4 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\assert.h)(0x63884908)
 I (C:\Keil_v5\ARM\ARMCLANG\include\rt_sys.h)(0x63884908)
-I (RTE\_Debug\RTE_Components.h)(0x655385B2)
+I (RTE\_Debug\RTE_Components.h)(0x655C859D)

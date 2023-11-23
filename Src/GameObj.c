@@ -43,7 +43,7 @@ void Print_GameObject(GameObject* g_Obj, BOOL hitbox)
     // Draws hitbox if set to true
     if (hitbox)
     {
-        GUI_SetColor(ClrWhite);
+        GUI_SetColor(ClrKhaki);
         
         // Calculate the exact left, top, right, and bottom coordinates of the sprite
         int left = g_Obj->pos.x - (g_Obj->size.x / 2);
@@ -57,6 +57,7 @@ void Print_GameObject(GameObject* g_Obj, BOOL hitbox)
             right,  // right
             bottom  // bottom
         );
+					
     }
 }
 
